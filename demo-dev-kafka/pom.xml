@@ -7,19 +7,16 @@
 		<artifactId>duckula3-dev-demo</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<artifactId>duckula3-dev-demo-cuslistener</artifactId>
+	<artifactId>demo-dev-kafka</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>net.wicp.tams</groupId>
-			<artifactId>common-binlog-alone</artifactId>
+			<artifactId>common-binlog-alone-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 </project>

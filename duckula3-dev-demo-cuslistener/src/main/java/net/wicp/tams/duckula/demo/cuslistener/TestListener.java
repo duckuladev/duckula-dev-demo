@@ -11,7 +11,7 @@ import net.wicp.tams.common.binlog.alone.binlog.listener.AbsBinlogListener;
 
 public class TestListener extends AbsBinlogListener {
 	@Override
-	public void doBusiTrue(Rule rule, DuckulaEvent duckulaEvent) {
+	public void doBusiTrue(Rule rule, DuckulaEvent duckulaEvent, boolean isSplit) {
 		Integer age = DuckulaAssit.getValue(duckulaEvent, "age", 0);
 		System.out.println("age=" + age);
 		Serializable postNo = DuckulaAssit.getValue(duckulaEvent, "postNo", 0);
