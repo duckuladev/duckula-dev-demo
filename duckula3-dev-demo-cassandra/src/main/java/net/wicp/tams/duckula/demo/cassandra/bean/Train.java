@@ -9,7 +9,7 @@ import lombok.Data;
 
  
 @UDT(keyspace = "gvp", name = "train")
-class Train {
+public class Train {
 	@Field(name = "name")
 	private String name;
 	//@Field(name = "date")
