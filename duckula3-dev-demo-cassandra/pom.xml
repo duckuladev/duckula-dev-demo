@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>net.wicp.tams</groupId>
+		<artifactId>duckula3-dev-demo</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>duckula3-dev-demo-cassandra</artifactId>
+	<properties>
+		<!-- 与cassandra 3.7.2版本相配 -->
+		<metrics.version>3.2.2</metrics.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-cassandra</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-common</artifactId>
+			<version>4.0.56.Final</version>
+		</dependency>
+		<!-- log4j2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+		</dependency>
+	</dependencies>
+</project>

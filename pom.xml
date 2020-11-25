@@ -13,5 +13,6 @@
 	<modules>
 		<module>duckula3-dev-demo-cuslistener</module>
 		<module>demo-dev-kafka</module>
+		<module>duckula3-dev-demo-cassandra</module>
 	</modules>
 </project>
