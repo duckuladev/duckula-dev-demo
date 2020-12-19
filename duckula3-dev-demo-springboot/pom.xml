@@ -1,0 +1,200 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>duckula3-dev-demo-springboot</artifactId>
+	<version>0.0.1</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.3.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<jedis.version>2.9.0</jedis.version>
+		<docker.registry.url>10.100.19.135:5000</docker.registry.url>
+		<jetty.version>9.4.25.v20191220</jetty.version>
+		<spring-release-version>5.2.3.RELEASE</spring-release-version>
+		<spring-boot-version>2.2.3.RELEASE</spring-boot-version>
+		<fasterxml.version>2.10.2</fasterxml.version>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.wicp.tams</groupId>
+				<artifactId>common</artifactId>
+				<version>3.6.14</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- exclusions> <exclusion> <groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-tomcat</artifactId> </exclusion> </exclusions -->
+		</dependency>
+		<!-- 不能使用jetty: <dependency> <groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-starter-jetty</artifactId> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<!-- 测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<!-- logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-metrics</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-connector</artifactId>
+		</dependency>
+		<!-- websocket -->
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-apiext</artifactId>
+		</dependency>
+		<!-- k8s -->
+		<dependency>
+			<groupId>io.kubernetes</groupId>
+			<artifactId>client-java</artifactId>
+			<version>9.0.0</version>
+		</dependency>
+		<!--web核心依赖 -->
+		<!--mysql数据库驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.47</version>
+		</dependency>
+		<!--mybatis -->
+		<!-- plus -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-extension</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mybatis</groupId>
+					<artifactId>mybatis-spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.mybatis</groupId>
+					<artifactId>mybatis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<!-- 不引入common-jdbc -->
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-spring-autoconfig</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<!-- 权限 -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+		<dependency><!--页面模板依赖 -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-binlog-alone-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-os</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.wicp.tams</groupId>
+			<artifactId>common-aws</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>duckula3-dev-demo-springboot</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>net.wicp.tams</groupId>
+				<artifactId>ts-maven-plugin</artifactId>
+				<configuration>
+					<registry>${docker.registry.url}</registry>
+					<group>group1</group>
+					<!-- 回调地址 -->
+					<callback>http://192.168.15.63:8080/tams-boom/callback</callback>
+					<!-- 回调时用的msgid,全系统必须唯一,建议用 base_deploy的id字段 -->
+					<msgid>23</msgid>
+				</configuration>
+				<executions>
+					<execution>
+						<id>encache</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>addcache</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+</project>
