@@ -12,7 +12,7 @@ import net.wicp.tams.common.spring.autoconfig.annotation.EnableTams;
 @ImportResource("classpath:beanRefContext.xml")
 @Configuration
 @MapperScan("net.wicp.tams.app.duckula.controller.dao")
-@EnableTams(packages = "net.wicp.tams.app.demo.tams.outer", springconfpres = "spring.datasource.dynamic.datasource.master", configpath = "home:/tams.properties")
+@EnableTams(packages = "net.wicp.tams.app.demo.tams.outer", springconfpres = "spring.datasource.dynamic.datasource.master")
 public class DuckulaSpringbootApplication {
 
 	public static void main(String[] args) {
